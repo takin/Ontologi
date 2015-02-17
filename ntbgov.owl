@@ -18,6 +18,7 @@
      ontologyIRI="http://www.ntbprov.go.id/semweb/resource/"
      versionIRI="http://www.ntbprov.go.id/ontologies/ntbgov/v3">
     <Prefix name="" IRI="http://www.w3.org/2002/07/owl#"/>
+    <Prefix name="gn" IRI="http://www.geonames.org/ontology#"/>
     <Prefix name="org" IRI="http://www.w3.org/ns/org#"/>
     <Prefix name="owl" IRI="http://www.w3.org/2002/07/owl#"/>
     <Prefix name="rdf" IRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#"/>
@@ -26,6 +27,9 @@
     <Prefix name="dbpp" IRI="http://dbpedia.org/property/"/>
     <Prefix name="prop" IRI="http://www.ntbprov.go.id/semweb/property/"/>
     <Prefix name="rdfs" IRI="http://www.w3.org/2000/01/rdf-schema#"/>
+    <Declaration>
+        <Class abbreviatedIRI="dbid:Bupati"/>
+    </Declaration>
     <Declaration>
         <Class abbreviatedIRI="dbid:Camat"/>
     </Declaration>
@@ -36,6 +40,9 @@
         <Class abbreviatedIRI="dbid:Dinas_daerah"/>
     </Declaration>
     <Declaration>
+        <Class abbreviatedIRI="dbid:Gubernur"/>
+    </Declaration>
+    <Declaration>
         <Class abbreviatedIRI="dbid:Kabupaten"/>
     </Declaration>
     <Declaration>
@@ -48,10 +55,16 @@
         <Class abbreviatedIRI="dbid:Kota"/>
     </Declaration>
     <Declaration>
+        <Class abbreviatedIRI="dbid:Pegawai_negeri"/>
+    </Declaration>
+    <Declaration>
         <Class abbreviatedIRI="dbid:Pemerintah_daerah"/>
     </Declaration>
     <Declaration>
         <Class abbreviatedIRI="dbid:Provinsi"/>
+    </Declaration>
+    <Declaration>
+        <Class abbreviatedIRI="dbid:Wali_kota"/>
     </Declaration>
     <Declaration>
         <Class IRI="Badan"/>
@@ -63,33 +76,282 @@
         <Class IRI="Dinas"/>
     </Declaration>
     <Declaration>
+        <Class IRI="Kepala_badan"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="Kepala_biro"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="Kepala_dinas"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="Wakil_bupati"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="Wakil_camat"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="Wakil_gubernur"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="Wakil_wali_kota"/>
+    </Declaration>
+    <Declaration>
         <Class abbreviatedIRI="org:Organization"/>
     </Declaration>
     <Declaration>
         <Class IRI="http://xmlns.com/foaf/0.1/Person"/>
     </Declaration>
     <Declaration>
-        <ObjectProperty abbreviatedIRI="prop:hasJabatan"/>
+        <ObjectProperty abbreviatedIRI="prop:bekerja_di"/>
     </Declaration>
     <Declaration>
-        <ObjectProperty abbreviatedIRI="prop:hasPangkat"/>
+        <ObjectProperty abbreviatedIRI="prop:dipimpin_oleh"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty abbreviatedIRI="prop:memiliki_wakil"/>
     </Declaration>
     <Declaration>
         <ObjectProperty abbreviatedIRI="prop:memimpin"/>
     </Declaration>
     <Declaration>
-        <DataProperty abbreviatedIRI="prop:tahun"/>
+        <ObjectProperty abbreviatedIRI="prop:wakil"/>
     </Declaration>
+    <Declaration>
+        <ObjectProperty abbreviatedIRI="prop:wakil_dari"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty abbreviatedIRI="prop:alamat"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty abbreviatedIRI="prop:tahun_menjabat"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="Abduh"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="Dinas_pendidikan"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="Lotim"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="Masbagik"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="NTB"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="Syamsul"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="umar"/>
+    </Declaration>
+    <EquivalentClasses>
+        <Class abbreviatedIRI="dbid:Bupati"/>
+        <ObjectIntersectionOf>
+            <Class IRI="http://xmlns.com/foaf/0.1/Person"/>
+            <ObjectSomeValuesFrom>
+                <ObjectProperty abbreviatedIRI="prop:memimpin"/>
+                <Class abbreviatedIRI="dbid:Kabupaten"/>
+            </ObjectSomeValuesFrom>
+        </ObjectIntersectionOf>
+    </EquivalentClasses>
+    <EquivalentClasses>
+        <Class abbreviatedIRI="dbid:Camat"/>
+        <ObjectIntersectionOf>
+            <ObjectUnionOf>
+                <Class abbreviatedIRI="dbid:Pegawai_negeri"/>
+                <Class IRI="http://xmlns.com/foaf/0.1/Person"/>
+            </ObjectUnionOf>
+            <ObjectSomeValuesFrom>
+                <ObjectProperty abbreviatedIRI="prop:memimpin"/>
+                <Class abbreviatedIRI="dbid:Kecamatan"/>
+            </ObjectSomeValuesFrom>
+        </ObjectIntersectionOf>
+    </EquivalentClasses>
+    <EquivalentClasses>
+        <Class abbreviatedIRI="dbid:Desa"/>
+        <ObjectIntersectionOf>
+            <ObjectUnionOf>
+                <Class abbreviatedIRI="dbid:Pemerintah_daerah"/>
+                <Class abbreviatedIRI="org:Organization"/>
+            </ObjectUnionOf>
+            <ObjectSomeValuesFrom>
+                <ObjectProperty abbreviatedIRI="prop:dipimpin_oleh"/>
+                <Class abbreviatedIRI="dbid:Kepala_desa"/>
+            </ObjectSomeValuesFrom>
+        </ObjectIntersectionOf>
+    </EquivalentClasses>
+    <EquivalentClasses>
+        <Class abbreviatedIRI="dbid:Gubernur"/>
+        <ObjectIntersectionOf>
+            <Class IRI="http://xmlns.com/foaf/0.1/Person"/>
+            <ObjectIntersectionOf>
+                <ObjectSomeValuesFrom>
+                    <ObjectProperty abbreviatedIRI="prop:memiliki_wakil"/>
+                    <Class IRI="http://xmlns.com/foaf/0.1/Person"/>
+                </ObjectSomeValuesFrom>
+                <ObjectSomeValuesFrom>
+                    <ObjectProperty abbreviatedIRI="prop:memimpin"/>
+                    <Class abbreviatedIRI="dbid:Provinsi"/>
+                </ObjectSomeValuesFrom>
+            </ObjectIntersectionOf>
+        </ObjectIntersectionOf>
+    </EquivalentClasses>
+    <EquivalentClasses>
+        <Class abbreviatedIRI="dbid:Kabupaten"/>
+        <ObjectIntersectionOf>
+            <ObjectUnionOf>
+                <Class abbreviatedIRI="dbid:Pemerintah_daerah"/>
+                <Class abbreviatedIRI="org:Organization"/>
+            </ObjectUnionOf>
+            <ObjectSomeValuesFrom>
+                <ObjectProperty abbreviatedIRI="prop:dipimpin_oleh"/>
+                <Class abbreviatedIRI="dbid:Bupati"/>
+            </ObjectSomeValuesFrom>
+        </ObjectIntersectionOf>
+    </EquivalentClasses>
+    <EquivalentClasses>
+        <Class abbreviatedIRI="dbid:Kecamatan"/>
+        <ObjectIntersectionOf>
+            <ObjectUnionOf>
+                <Class abbreviatedIRI="dbid:Pemerintah_daerah"/>
+                <Class abbreviatedIRI="org:Organization"/>
+            </ObjectUnionOf>
+            <ObjectSomeValuesFrom>
+                <ObjectProperty abbreviatedIRI="prop:dipimpin_oleh"/>
+                <Class abbreviatedIRI="dbid:Camat"/>
+            </ObjectSomeValuesFrom>
+        </ObjectIntersectionOf>
+    </EquivalentClasses>
     <EquivalentClasses>
         <Class abbreviatedIRI="dbid:Kepala_desa"/>
         <ObjectIntersectionOf>
             <Class IRI="http://xmlns.com/foaf/0.1/Person"/>
-            <ObjectAllValuesFrom>
+            <ObjectSomeValuesFrom>
                 <ObjectProperty abbreviatedIRI="prop:memimpin"/>
                 <Class abbreviatedIRI="dbid:Desa"/>
-            </ObjectAllValuesFrom>
+            </ObjectSomeValuesFrom>
         </ObjectIntersectionOf>
     </EquivalentClasses>
+    <EquivalentClasses>
+        <Class abbreviatedIRI="dbid:Kota"/>
+        <ObjectIntersectionOf>
+            <ObjectUnionOf>
+                <Class abbreviatedIRI="dbid:Pemerintah_daerah"/>
+                <Class abbreviatedIRI="org:Organization"/>
+            </ObjectUnionOf>
+            <ObjectSomeValuesFrom>
+                <ObjectProperty abbreviatedIRI="prop:dipimpin_oleh"/>
+                <Class abbreviatedIRI="dbid:Wali_kota"/>
+            </ObjectSomeValuesFrom>
+        </ObjectIntersectionOf>
+    </EquivalentClasses>
+    <EquivalentClasses>
+        <Class abbreviatedIRI="dbid:Pegawai_negeri"/>
+        <ObjectIntersectionOf>
+            <Class IRI="http://xmlns.com/foaf/0.1/Person"/>
+            <ObjectComplementOf>
+                <ObjectUnionOf>
+                    <Class abbreviatedIRI="dbid:Bupati"/>
+                    <Class abbreviatedIRI="dbid:Gubernur"/>
+                    <Class abbreviatedIRI="dbid:Kepala_desa"/>
+                    <Class abbreviatedIRI="dbid:Wali_kota"/>
+                    <Class IRI="Wakil_bupati"/>
+                    <Class IRI="Wakil_gubernur"/>
+                    <Class IRI="Wakil_wali_kota"/>
+                </ObjectUnionOf>
+            </ObjectComplementOf>
+            <ObjectSomeValuesFrom>
+                <ObjectProperty abbreviatedIRI="prop:bekerja_di"/>
+                <Class abbreviatedIRI="dbid:Pemerintah_daerah"/>
+            </ObjectSomeValuesFrom>
+        </ObjectIntersectionOf>
+    </EquivalentClasses>
+    <EquivalentClasses>
+        <Class abbreviatedIRI="dbid:Provinsi"/>
+        <ObjectIntersectionOf>
+            <ObjectUnionOf>
+                <Class abbreviatedIRI="dbid:Pemerintah_daerah"/>
+                <Class abbreviatedIRI="org:Organization"/>
+            </ObjectUnionOf>
+            <ObjectSomeValuesFrom>
+                <ObjectProperty abbreviatedIRI="prop:dipimpin_oleh"/>
+                <Class abbreviatedIRI="dbid:Gubernur"/>
+            </ObjectSomeValuesFrom>
+        </ObjectIntersectionOf>
+    </EquivalentClasses>
+    <EquivalentClasses>
+        <Class IRI="Badan"/>
+        <ObjectIntersectionOf>
+            <ObjectUnionOf>
+                <Class abbreviatedIRI="dbid:Pemerintah_daerah"/>
+                <Class abbreviatedIRI="org:Organization"/>
+            </ObjectUnionOf>
+            <ObjectSomeValuesFrom>
+                <ObjectProperty abbreviatedIRI="prop:dipimpin_oleh"/>
+                <Class IRI="Kepala_badan"/>
+            </ObjectSomeValuesFrom>
+        </ObjectIntersectionOf>
+    </EquivalentClasses>
+    <EquivalentClasses>
+        <Class IRI="Biro"/>
+        <ObjectIntersectionOf>
+            <ObjectUnionOf>
+                <Class abbreviatedIRI="dbid:Pemerintah_daerah"/>
+                <Class abbreviatedIRI="org:Organization"/>
+            </ObjectUnionOf>
+            <ObjectSomeValuesFrom>
+                <ObjectProperty abbreviatedIRI="prop:dipimpin_oleh"/>
+                <Class IRI="Kepala_biro"/>
+            </ObjectSomeValuesFrom>
+        </ObjectIntersectionOf>
+    </EquivalentClasses>
+    <EquivalentClasses>
+        <Class IRI="Dinas"/>
+        <ObjectIntersectionOf>
+            <ObjectUnionOf>
+                <Class abbreviatedIRI="dbid:Dinas_daerah"/>
+                <Class abbreviatedIRI="dbid:Pemerintah_daerah"/>
+                <Class abbreviatedIRI="org:Organization"/>
+            </ObjectUnionOf>
+            <ObjectSomeValuesFrom>
+                <ObjectProperty abbreviatedIRI="prop:dipimpin_oleh"/>
+                <Class IRI="Kepala_dinas"/>
+            </ObjectSomeValuesFrom>
+        </ObjectIntersectionOf>
+    </EquivalentClasses>
+    <EquivalentClasses>
+        <Class IRI="Kepala_dinas"/>
+        <ObjectIntersectionOf>
+            <ObjectUnionOf>
+                <Class abbreviatedIRI="dbid:Dinas_daerah"/>
+                <ObjectSomeValuesFrom>
+                    <ObjectProperty abbreviatedIRI="prop:memimpin"/>
+                    <Class IRI="Dinas"/>
+                </ObjectSomeValuesFrom>
+            </ObjectUnionOf>
+            <ObjectUnionOf>
+                <Class abbreviatedIRI="dbid:Pegawai_negeri"/>
+                <Class IRI="http://xmlns.com/foaf/0.1/Person"/>
+            </ObjectUnionOf>
+        </ObjectIntersectionOf>
+    </EquivalentClasses>
+    <EquivalentClasses>
+        <Class abbreviatedIRI="org:Organization"/>
+        <ObjectIntersectionOf>
+            <Class abbreviatedIRI="owl:Thing"/>
+            <ObjectSomeValuesFrom>
+                <ObjectProperty abbreviatedIRI="prop:dipimpin_oleh"/>
+                <Class IRI="http://xmlns.com/foaf/0.1/Person"/>
+            </ObjectSomeValuesFrom>
+        </ObjectIntersectionOf>
+    </EquivalentClasses>
+    <SubClassOf>
+        <Class abbreviatedIRI="dbid:Camat"/>
+        <Class abbreviatedIRI="dbid:Pegawai_negeri"/>
+    </SubClassOf>
     <SubClassOf>
         <Class abbreviatedIRI="dbid:Desa"/>
         <Class abbreviatedIRI="dbid:Pemerintah_daerah"/>
@@ -111,12 +373,20 @@
         <Class abbreviatedIRI="dbid:Pemerintah_daerah"/>
     </SubClassOf>
     <SubClassOf>
+        <Class abbreviatedIRI="dbid:Pegawai_negeri"/>
+        <Class IRI="http://xmlns.com/foaf/0.1/Person"/>
+    </SubClassOf>
+    <SubClassOf>
         <Class abbreviatedIRI="dbid:Pemerintah_daerah"/>
         <Class abbreviatedIRI="org:Organization"/>
     </SubClassOf>
     <SubClassOf>
         <Class abbreviatedIRI="dbid:Provinsi"/>
         <Class abbreviatedIRI="dbid:Pemerintah_daerah"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class abbreviatedIRI="dbid:Wali_kota"/>
+        <Class IRI="http://xmlns.com/foaf/0.1/Person"/>
     </SubClassOf>
     <SubClassOf>
         <Class IRI="Badan"/>
@@ -129,6 +399,34 @@
     <SubClassOf>
         <Class IRI="Dinas"/>
         <Class abbreviatedIRI="dbid:Dinas_daerah"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="Kepala_badan"/>
+        <Class abbreviatedIRI="dbid:Pegawai_negeri"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="Kepala_biro"/>
+        <Class abbreviatedIRI="dbid:Pegawai_negeri"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="Kepala_dinas"/>
+        <Class abbreviatedIRI="dbid:Pegawai_negeri"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="Wakil_bupati"/>
+        <Class IRI="http://xmlns.com/foaf/0.1/Person"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="Wakil_camat"/>
+        <Class abbreviatedIRI="dbid:Pegawai_negeri"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="Wakil_gubernur"/>
+        <Class IRI="http://xmlns.com/foaf/0.1/Person"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="Wakil_wali_kota"/>
+        <Class IRI="http://xmlns.com/foaf/0.1/Person"/>
     </SubClassOf>
     <DisjointClasses>
         <Class abbreviatedIRI="dbid:Desa"/>
@@ -144,11 +442,61 @@
         <Class abbreviatedIRI="org:Organization"/>
         <Class IRI="http://xmlns.com/foaf/0.1/Person"/>
     </DisjointClasses>
+    <ClassAssertion>
+        <Class IRI="http://xmlns.com/foaf/0.1/Person"/>
+        <NamedIndividual IRI="Abduh"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="Dinas"/>
+        <NamedIndividual IRI="Dinas_pendidikan"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class abbreviatedIRI="dbid:Kabupaten"/>
+        <NamedIndividual IRI="Lotim"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class abbreviatedIRI="dbid:Kecamatan"/>
+        <NamedIndividual IRI="Masbagik"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class abbreviatedIRI="dbid:Provinsi"/>
+        <NamedIndividual IRI="NTB"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="http://xmlns.com/foaf/0.1/Person"/>
+        <NamedIndividual IRI="Syamsul"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class abbreviatedIRI="dbid:Pegawai_negeri"/>
+        <NamedIndividual IRI="umar"/>
+    </ClassAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty abbreviatedIRI="prop:memimpin"/>
+        <NamedIndividual IRI="Abduh"/>
+        <NamedIndividual IRI="NTB"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty abbreviatedIRI="prop:memimpin"/>
+        <NamedIndividual IRI="Syamsul"/>
+        <NamedIndividual IRI="Lotim"/>
+    </ObjectPropertyAssertion>
+    <SubObjectPropertyOf>
+        <ObjectProperty abbreviatedIRI="prop:wakil"/>
+        <ObjectProperty abbreviatedIRI="prop:memiliki_wakil"/>
+    </SubObjectPropertyOf>
+    <InverseObjectProperties>
+        <ObjectProperty abbreviatedIRI="prop:dipimpin_oleh"/>
+        <ObjectProperty abbreviatedIRI="prop:memimpin"/>
+    </InverseObjectProperties>
     <FunctionalObjectProperty>
         <ObjectProperty abbreviatedIRI="prop:memimpin"/>
     </FunctionalObjectProperty>
     <ObjectPropertyDomain>
-        <ObjectProperty abbreviatedIRI="prop:hasJabatan"/>
+        <ObjectProperty abbreviatedIRI="prop:bekerja_di"/>
+        <Class IRI="http://xmlns.com/foaf/0.1/Person"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty abbreviatedIRI="prop:memiliki_wakil"/>
         <Class IRI="http://xmlns.com/foaf/0.1/Person"/>
     </ObjectPropertyDomain>
     <ObjectPropertyDomain>
@@ -156,9 +504,33 @@
         <Class IRI="http://xmlns.com/foaf/0.1/Person"/>
     </ObjectPropertyDomain>
     <ObjectPropertyRange>
+        <ObjectProperty abbreviatedIRI="prop:bekerja_di"/>
+        <Class abbreviatedIRI="dbid:Pemerintah_daerah"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty abbreviatedIRI="prop:memiliki_wakil"/>
+        <Class IRI="http://xmlns.com/foaf/0.1/Person"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
         <ObjectProperty abbreviatedIRI="prop:memimpin"/>
         <Class abbreviatedIRI="org:Organization"/>
     </ObjectPropertyRange>
+    <FunctionalDataProperty>
+        <DataProperty abbreviatedIRI="prop:tahun_menjabat"/>
+    </FunctionalDataProperty>
+    <DataPropertyDomain>
+        <DataProperty abbreviatedIRI="prop:tahun_menjabat"/>
+        <Class IRI="http://xmlns.com/foaf/0.1/Person"/>
+    </DataPropertyDomain>
+    <DataPropertyRange>
+        <DataProperty abbreviatedIRI="prop:tahun_menjabat"/>
+        <Datatype abbreviatedIRI="xsd:string"/>
+    </DataPropertyRange>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <AbbreviatedIRI>prop:wakil_dari</AbbreviatedIRI>
+        <Literal datatypeIRI="&xsd;string">properti untuk menyatakan bahwal individual merupakan wakil dari individual lain</Literal>
+    </AnnotationAssertion>
 </Ontology>
 
 

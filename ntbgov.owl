@@ -304,6 +304,10 @@
         </ObjectIntersectionOf>
     </EquivalentClasses>
     <SubClassOf>
+        <Class abbreviatedIRI="dbid:Bupati"/>
+        <Class IRI="http://xmlns.com/foaf/0.1/Person"/>
+    </SubClassOf>
+    <SubClassOf>
         <Class abbreviatedIRI="dbid:Camat"/>
         <Class abbreviatedIRI="dbid:Pegawai_negeri"/>
     </SubClassOf>
